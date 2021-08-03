@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import TypingCard from '@components/TypingCard'
-import Mallki from '@/components/Mallki'
+/*
+ * @Author: 吴晓晴
+ * @Date: 2021-08-03 22:54:22
+ * @LastEditTime: 2021-08-04 00:07:17
+ * @FilePath: \webDevelopment\blogDev\jspang-blog\react-blog\react-blog-typescript\src\components\Drawer\index.tsx
+ */
+import React, { useState, useEffect, FC, ReactElement } from 'react';
+// import TypingCard from '@components/TypingCard'
+// import Mallki from '@/components/Mallki'
+import TypingCard from '../TypingCard'
+import Mallki from '../Mallki'
 import { Drawer } from 'antd';
 import "./style.less"
 
 
-const cardContent = `
+const cardContent: string = `
 1、一花一世界，一叶一追寻，一曲一场叹，一生为一人。人世间有种爱，没有奢求，没有谁对谁错，
 亦不怪缘浅情深，对望，两两相知；转身，无怨无悔。默默里，珍藏聚散离合，只消得，一季花香，暖到落泪。
 <br>
@@ -26,16 +34,20 @@ const cardContent = `
 蓦然回望你灿烂的笑靥。多年忘怀，时日过却，我采撷了过往的风景，响在回廊。
 `
 
+interface DrawerProps {
+    drawerVisible: boolean;
+    closeDrawer: () => void
+}
 
 
-export default function DrawerPage(props) {
+const DrawerPage: FC<DrawerProps> = (props): ReactElement => {
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
         setVisible(props.drawerVisible)
     }, [props.drawerVisible])
 
-   
+
     return (
         <Drawer
             title="爱技术，爱生活，简单并快乐着"
@@ -55,3 +67,5 @@ export default function DrawerPage(props) {
 
     )
 }
+
+export default DrawerPage

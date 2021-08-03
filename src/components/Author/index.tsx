@@ -1,10 +1,17 @@
+/*
+ * @Author: 吴晓晴
+ * @Date: 2021-08-03 22:54:22
+ * @LastEditTime: 2021-08-03 23:36:04
+ * @FilePath: \webDevelopment\blogDev\jspang-blog\react-blog\react-blog-typescript\src\components\Author\index.tsx
+ */
 
-import React, { memo, useState } from 'react';
+import React, { memo, useState, FC, ReactElement } from 'react';
 import "./style.less"
 import { Avatar, Divider, Popover } from "antd"
 import { GithubFilled, QqCircleFilled, WechatFilled } from '@ant-design/icons';
 import DrawerBox from '../Drawer';
-import Mallki from '@/components/Mallki'
+// import Mallki from '@/components/Mallki'
+import Mallki from '../Mallki'
 
 
 
@@ -13,13 +20,11 @@ import Mallki from '@/components/Mallki'
 
 
 
+//const Author = ()=>{}
+const Author: FC = (): ReactElement => {
+    const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
 
-const Author = () => {
-
-    const [drawerVisible, setDrawerVisible] = useState(false);
-
-
-    const closeDrawer = e => {
+    const closeDrawer = () => {
         setDrawerVisible(false)
     }
 
@@ -51,11 +56,11 @@ const Author = () => {
                         size={80}
                         src={require("../../assets/img/avatar.jpg").default}
                         className="avatar"
-                        // onClick={e => setDrawerVisible(true)}
-                        onMouseOver={e => setDrawerVisible(true)}
+                        //@ts-ignore
+                        onMouseOver={() => setDrawerVisible(true)}
                     />
                     <div className="author-introdution">
-                      
+
                         <Mallki className="mallki-text" text="只会吹牛逼的菜鸡前端日哥" />
                         <Divider>社交账号</Divider>
                         <Popover content={githubContent} title="GitHub">
