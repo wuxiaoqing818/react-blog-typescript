@@ -1,0 +1,39 @@
+.header {
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+
+    .ant-menu-item {
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .header-logo {
+        color: #1e90ff;
+        font-size: 30px;
+        text-align: left;
+
+    }
+
+    .header-txt {
+        font-weight: bolder;
+        color: #de6f64;
+        background-image: -webkit-linear-gradient(left, #ffdcb4, #b96972 25%, #e88a57 50%, #804170 75%, #a596cd);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: masked-animation 1.5s infinite linear;
+        font-weight: normal;
+        padding-left: 30px;
+    }
+
+    @keyframes masked-animation {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
+}
