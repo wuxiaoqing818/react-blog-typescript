@@ -3,14 +3,16 @@ import './style.less'
 import { Row, Col, Menu, Divider } from "antd"
 import { useHistory, Link } from 'react-router-dom';
 import { HomeFilled, SmileFilled, StarFilled, LikeFilled } from '@ant-design/icons';
-import api from "@services"
+// import api from "@services"
+import api from "../../services"
+import { TypeInfoType } from '../../typings/common'
 
 
 const Header = () => {
     let history = useHistory()
-    const [navArr, setNavArr] = useState([])
+    const [navArr, setNavArr] = useState<Array<TypeInfoType>>([])
     useEffect(() => {
-        api.header.getTypeInfo().then(res => {
+        api.header.getTypeInfo().then((res: { data: any}) => {
             console.log(res)
             setNavArr([...navArr, ...res.data])
         })
@@ -19,7 +21,7 @@ const Header = () => {
 
 
 
-    const handleClick = (id) => {
+    const handleClick = (id: number) => {
         console.log(id)
         if (id) {
             history.push({
@@ -37,7 +39,7 @@ const Header = () => {
 
     return (
         <div className="header">
-            <Row type="flex" justify="center" align="middle">
+            <Row justify="center" align="middle">
                 <Col xs={24} sm={24} md={10} lg={10} xl={10}>
                     <span className="header-logo">小阿晴i</span>
                     <span className="header-txt">专注前端开发，喜欢和小姐姐一起学习。</span>
@@ -47,7 +49,7 @@ const Header = () => {
                         <Menu.Item key="home" icon={<HomeFilled />} onClick={e => handleClick(0)}>
 
                             首页
-                   </Menu.Item>
+                        </Menu.Item>
                         {
                             navArr.map((item, index) => {
                                 return (

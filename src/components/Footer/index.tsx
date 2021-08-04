@@ -1,10 +1,10 @@
 
-import React, { memo } from 'react';
+import React, { memo,FC,ReactElement } from 'react';
 import "./style.less"
 
 
 
-const Footer = () => {
+const Footer:FC = ():ReactElement => {
     return (
         <div className="footer">
             <div>欢迎来到小阿晴i的博客</div>

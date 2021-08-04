@@ -4,6 +4,6 @@ export interface paramsType {
 
 
 export interface keyType {
-    [key:string]:string
+    [key:string]:any
 }
 

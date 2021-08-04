@@ -18,6 +18,7 @@ import Header from "@components/Header"
 import Author from "@components/Author"
 import Advert from "@components/Advert"
 import Footer from "@components/Footer"
+import Tree from "@components/TreeList"
 import { FieldTimeOutlined, TrophyOutlined,CodeOutlined } from '@ant-design/icons';
 import api from "@services"
 
@@ -112,6 +113,7 @@ const Home = () => {
                 <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4} >
                     <Author></Author>
                     <Advert></Advert>
+                    <Tree/>
                     <div className="detailed-nav">
                         <div className="nav-title">文章列表</div>
 

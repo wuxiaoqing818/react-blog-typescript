@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{FC,ReactElement}from 'react'
 import { Spin } from 'antd';
 import './style.less'
 
-export default function SuspenseLoading() {
+const SuspenseLoading:FC=():ReactElement=> {
     return (
         <div className="Suspense-loading">
             <Spin size="large"/>
         </div>
     )
 }
+
+export default SuspenseLoading

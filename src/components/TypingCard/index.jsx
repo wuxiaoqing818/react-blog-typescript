@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect ,ReactElement} from "react";
 import { Card } from "antd";
 import { PropTypes } from "prop-types";
 import Typing from "@/untils/typing";
@@ -30,7 +30,7 @@ const TypingCard = (props) => {
 };
 
 TypingCard.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.object,
   source: PropTypes.string,
 };
 

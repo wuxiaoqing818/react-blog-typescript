@@ -41,7 +41,7 @@ interface DrawerProps {
 
 
 const DrawerPage: FC<DrawerProps> = (props): ReactElement => {
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState<boolean>(false);
 
     useEffect(() => {
         setVisible(props.drawerVisible)
