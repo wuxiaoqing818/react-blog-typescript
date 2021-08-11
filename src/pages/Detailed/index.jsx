@@ -1,12 +1,9 @@
 
-import React, { memo, useState, useEffect, useRef } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React, { memo, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import "./style.less"
-import {
-    useParams
-} from "react-router-dom";
 import { Row, Col, Breadcrumb, Affix, Tooltip } from "antd"
-import { SettingOutlined, FieldTimeOutlined } from '@ant-design/icons';
+import { SettingOutlined } from '@ant-design/icons';
 import Header from "@components/Header"
 import Author from "@components/Author"
 import Advert from "@components/Advert"

@@ -57,12 +57,14 @@ module.exports = {
   webpack: {
     alias: {
       '@': resolve('src'),
-      '@components': resolve('src/components'),
+      '@components': resolve('./src/components'),
       '@assets': resolve('src/assets'),
       '@pages': resolve('src/pages'),
       '@services': resolve('src/services'),
+      '@typings':resolve('src/typings')
 
-    }
+    },
+    // extensions: [".tsx", ".ts", ".jsx", ".js"]
   },
   devServer: {
     port: 9000,
