@@ -19,7 +19,7 @@ import Author from "@components/Author"
 import Advert from "@components/Advert"
 import Footer from "@components/Footer"
 import Tree from "@components/TreeList"
-import { FieldTimeOutlined, TrophyOutlined, CodeOutlined } from '@ant-design/icons';
+import { FieldTimeOutlined, TrophyOutlined, CodeOutlined, StarFilled, SmileFilled, LikeFilled } from '@ant-design/icons';
 import api from "@services/index"
 import marked from "marked"
 import hljs from "highlight.js"
@@ -33,6 +33,7 @@ interface ArticleType {
     title: string,
     typeName: string,
     view_count: number;
+    typeId: string;   //接口少个typeId
 }
 
 
@@ -83,7 +84,7 @@ const Home = () => {
     const handleInfiniteOnLoad = () => {
 
         if (mylist.length >= list.length) {
-            message.warning('到底了宝宝');
+            // message.warning('到底了宝宝');
             setHasMore(false)
             setLoading(false)
             return false;
@@ -136,7 +137,14 @@ const Home = () => {
                                             {item.addTime}
                                         </span>
                                         <span>
-                                            <TrophyOutlined />
+                                            {
+                                                // @ts-ignore
+                                                {
+                                                    1: <StarFilled />,
+                                                    2: <SmileFilled />,
+                                                    3: <LikeFilled />
+                                                }[item.typeId]
+                                            }
                                             {item.typeName}
                                         </span>
                                         <span>
@@ -195,7 +203,7 @@ const Home = () => {
                 <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4} >
                     <Author></Author>
                     <Advert></Advert>
-                    <Tree />
+                    {/* <Tree /> */}
                     <div className="detailed-nav">
                         <div className="nav-title">文章列表</div>
 

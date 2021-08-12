@@ -12,11 +12,10 @@ const Header = () => {
     let history = useHistory()
     const [navArr, setNavArr] = useState<Array<TypeInfoType>>([])
     useEffect(() => {
-        api.header.getTypeInfo().then((res: { data: any}) => {
+        api.header.getTypeInfo().then((res: { data: any }) => {
             console.log(res)
             setNavArr([...navArr, ...res.data])
         })
-
     }, [])
 
 
@@ -53,9 +52,16 @@ const Header = () => {
                         {
                             navArr.map((item, index) => {
                                 return (
-                                    <Menu.Item key={index} icon={
-                                        { 1: <StarFilled />, 2: <SmileFilled />, 3: <LikeFilled /> }[item.icon]
-                                    } onClick={e => handleClick(item.id)}>
+                                    <Menu.Item
+                                        key={index}
+                                        icon={
+                                            {
+                                                1: <StarFilled />,
+                                                2: <SmileFilled />,
+                                                3: <LikeFilled />
+                                            }[item.icon]
+                                        }
+                                        onClick={e => handleClick(item.id)}>
                                         {/* <Link to={{
                                             pathname: '/detailed',
                                             search: `?id=${item.id}`,

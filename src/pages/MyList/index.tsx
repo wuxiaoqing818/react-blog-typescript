@@ -72,7 +72,7 @@ const MyList: FC<PropsType> = (props): ReactElement => {
     const handleInfiniteOnLoad = () => {
 
         if (mylist.length >= list.length) {
-            message.warning('到底了宝宝');
+            // message.warning('到底了宝宝');
             setHasMore(false)
             setLoading(false)
             return false;
