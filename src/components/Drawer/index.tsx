@@ -45,6 +45,7 @@ const DrawerPage: FC<DrawerProps> = (props): ReactElement => {
 
     useEffect(() => {
         setVisible(props.drawerVisible)
+        console.log('测试callback===========================')
     }, [props.drawerVisible])
 
 

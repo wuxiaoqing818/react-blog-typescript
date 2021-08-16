@@ -5,9 +5,9 @@
  * @FilePath: \webDevelopment\blogDev\jspang-blog\react-blog\react-blog-typescript\src\components\Author\index.tsx
  */
 
-import React, { memo, useState, FC, ReactElement } from 'react';
+import React, { memo, useState, FC, ReactElement,useCallback } from 'react';
 import "./style.less"
-import { Avatar, Divider, Popover } from "antd"
+import { Avatar, Divider, Popover,Button } from "antd"
 import { GithubFilled, QqCircleFilled, WechatFilled } from '@ant-design/icons';
 import DrawerBox from '../Drawer';
 // import Mallki from '@/components/Mallki'
@@ -23,10 +23,13 @@ import Mallki from '../Mallki'
 //const Author = ()=>{}
 const Author: FC = (): ReactElement => {
     const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
+    const [mallkiText,setMallkiText] = useState<string>('只会吹牛逼的菜鸡前端日哥')
 
-    const closeDrawer = () => {
+   
+
+    const closeDrawer = useCallback(()=>{
         setDrawerVisible(false)
-    }
+    },[drawerVisible])
 
     const qqContent = (
         <div>
@@ -47,7 +50,6 @@ const Author: FC = (): ReactElement => {
     )
 
 
-
     return (
         <div className="author">
             <div className="author-div comm-box" >
@@ -61,7 +63,7 @@ const Author: FC = (): ReactElement => {
                     />
                     <div className="author-introdution">
 
-                        <Mallki className="mallki-text" text="只会吹牛逼的菜鸡前端日哥" />
+                        <Mallki className="mallki-text" text={mallkiText} />
                         <Divider>社交账号</Divider>
                         <Popover content={githubContent} title="GitHub">
                             <Avatar size={28} icon={<GithubFilled style={{ color: 'green' }} />} className="account" />
