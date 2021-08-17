@@ -47,6 +47,8 @@ module.exports = {
     // extensions: [".tsx", ".ts", ".jsx", ".js"]
     plugins: [
       // new TerserPlugin({
+      //   sourceMap: process.env.NODE_ENV == 'development' ? true : false, // Must be set to true if using source-maps in production
+      //   parallel: true,
       //   terserOptions: {
       //     ecma: undefined,
       //     warnings: false,
@@ -58,19 +60,20 @@ module.exports = {
       //         process.env.NODE_ENV === "production" ? ["console.log"] : "", // 生产环境下移除console
       //     },
       //   },
-      //   sourceMap: process.env.NODE_ENV === "development", // Must be set to true if using source-maps in production
+   
       // }),
-      // new UglifyJsPlugin({
-      //   uglifyOptions: {
-      //     compress: {
-      //       warnings: process.env.NODE_ENV == 'development' ? true : false,  //必须为1版本  不然启动打包报错  或者高版本删除此项
-      //       drop_debugger: process.env.NODE_ENV == 'development' ? false : true,
-      //       drop_console: process.env.NODE_ENV == 'development' ? false : true,
-      //     },
-      //   },
-      //   sourceMap: process.env.NODE_ENV == 'development' ? true : false,
-      //   parallel: true,
-      // }),
+      //打包时候开启
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            warnings: process.env.NODE_ENV == 'development' ? true : false,  //必须为1版本  不然启动打包报错  或者高版本删除此项
+            drop_debugger: process.env.NODE_ENV == 'development' ? false : true,
+            drop_console: process.env.NODE_ENV == 'development' ? false : true,
+          },
+        },
+        sourceMap: process.env.NODE_ENV == 'development' ? true : false,
+        parallel: true,
+      }),
     ],
   },
   devServer: {
