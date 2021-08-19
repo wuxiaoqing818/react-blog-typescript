@@ -10,10 +10,10 @@
  * @LastEditTime: 2021-05-23 13:47:39
  * @FilePath: \webDevelopment\blogDev\jspang-blog\react-blog\wxq-blog\src\pages\Home\index.jsx
  */
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useState, useEffect, FC, ReactElement } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import "./style.less"
-import { Row, Col, List, Tooltip, message, Spin } from "antd"
+import { Row, Col, List, Tooltip, message, Spin,Button } from "antd"
 import Header from "@components/Header"
 import Author from "@components/Author"
 import Advert from "@components/Advert"
@@ -25,6 +25,8 @@ import marked from "marked"
 import hljs from "highlight.js"
 import "highlight.js/styles/monokai-sublime.css"
 import InfiniteScroll from 'react-infinite-scroller';
+import { useStores } from "../../store/useStores";
+import { useObserver } from "mobx-react-lite";
 
 interface ArticleType {
     addTime: string;
@@ -37,7 +39,18 @@ interface ArticleType {
 }
 
 
-const Home = () => {
+const Home: FC = (): ReactElement => {
+    const {userStore:store}:{userStore:any}= useStores();
+    console.log(store.count)
+
+    let obj = {
+        name:'wxq',
+        age:'18'
+    }
+    //解构赋值并改名 限制类型写法 
+    const {name:name1,age:age1}:{name:any,age:any}= obj
+    console.log(name1)
+    console.log(age1)
 
     let history = useHistory();
     const [mylist, setMylist] = useState<Array<ArticleType>>([])
@@ -101,10 +114,10 @@ const Home = () => {
 
     };
 
-
-    return (
+    return useObserver(() => (
         <div className="home">
             <Header></Header>
+            <Button onClick={()=>store.setCount()}>加加{store.count}</Button>
             <Row className="comm-main" justify="center" >
                 <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14} >
                     <InfiniteScroll
@@ -248,9 +261,10 @@ const Home = () => {
                 <div className="child"></div>
             </div> */}
         </div>
+    ))
 
 
-    )
+
 
 }
 
