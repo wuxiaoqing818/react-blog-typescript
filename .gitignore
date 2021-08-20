@@ -3,6 +3,8 @@ node_modules
 /dist
 /blog
 /build
+/unitTest/coverage
+/unitTest/components/__snapshots__
 # /src/config/config.js
 
 # local env files

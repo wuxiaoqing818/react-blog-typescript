@@ -1,0 +1,8 @@
+- testURL: jsdom运行url，默认为"about:blank"，如果不设置，会在尝试访问localStorage出错。
+- setupFiles：运行测试代码前，Jest会先运行setupFile指定的配置文件来初始化测试环境。
+- moduleFileExtensions：支持单元测试的文件扩展名。
+- testPathIgnorePatterns：匹配忽略文件规则。
+- testRegex：匹配测试文件规则。
+- collectCoverage：是否生成测试覆盖报告，开启会增加测试时间。
+- collectCoverageFrom：指示应收集覆盖率信息的一组文件。如果文件与指定的glob模式匹配，即使此文件不存在测试，也将为其收集覆盖率信息，并且测试套件中从不 需要它。
+-moduleNameMapper：可用于将模块路径映射到不同的模块。默认情况下，预设将所有图像映射到图像存根模块，但如果找不到模块，可配置此选项。

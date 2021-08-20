@@ -1,5 +1,5 @@
 {
-  "name": "hy-music-web-music",
+  "name": "wxq-blog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -49,7 +49,13 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "webpack": "webpack --version"
+    "webpack": "webpack --version",
+    "jest": "jest --config ./unitTest/jest.config.js",
+    "jestUnitUpdate": "jest --config ./unitTest/jest.config.js --updateSnapshot",
+    "jestUnitReport": "jest --config ./unitTest/jest.config.js --coverage"
+  },
+  "jest": {
+    "testResultsProcessor": "./node_modules/jest-html-reporter"
   },
   "eslintConfig": {
     "extends": [
@@ -68,5 +74,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.2.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^27.0.6",
+    "react-test-renderer": "^17.0.2"
+  },
+  "main": "index.js",
+  "repository": "https://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@github.com/wuxiaoqing818/react-blog-typescript.git",
+  "author": "wxq01042524 <wxq01042524@alibaba-inc.com>",
+  "license": "MIT"
 }
