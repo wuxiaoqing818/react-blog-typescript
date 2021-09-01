@@ -4,6 +4,7 @@ node_modules
 /blog
 /build
 # /src/config/config.js
+/unitTest
 
 # local env files
 .env.local
