@@ -10,15 +10,16 @@ import "./style.less"
 import UsePrevious from "../../hooks/usePrevious"
 
 interface AdvertType {
-    name: string
+    name: string;
+    href:string
 }
 
 
 const arr: AdvertType[] = [
-    { name: '猪哥yyds' },
-    { name: '蛇蛇yyds' },
-    { name: '彭于晏yyds' },
-    { name: '罐神yyds' },
+    { name: 'react中文文档', href:'https://react.docschina.org/'},
+    { name: 'vue中文文档' ,href:'https://cn.vuejs.org/'},
+    { name: 'element中文文档' ,href:'https://element.eleme.cn/#/zh-CN'},
+    { name: 'antd中文文档' ,href:'https://ant.design/index-cn'},
 ]
 
 
@@ -41,7 +42,7 @@ const Advert: FC = (): ReactElement => {
             {/* <div><img src="http://blogimages.jspang.com/flutter_ad2.jpg" width="100%" /></div>
             <div><img src="http://blogimages.jspang.com/Vue_koa_ad1.jpg" width="100%" /></div>
             <div><img src="http://blogimages.jspang.com/WechatIMG12.jpeg" width="100%" /></div> */}
-            <h2>前端四大才子</h2>
+            <h2>学习文档</h2>
             {/* <h1>{`prev:${prevCount} current:${count}`}</h1> */}
             <ul>
                 {
@@ -50,7 +51,7 @@ const Advert: FC = (): ReactElement => {
                             <li
                                 key={index}
                             >
-                                {item.name}
+                                <a href={item.href} target="view_window">{item.name}</a>
                             </li>
 
                         )

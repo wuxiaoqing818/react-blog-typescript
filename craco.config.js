@@ -7,7 +7,7 @@ const resolve = dir => path.resolve(__dirname, dir)
 
 //清楚console.log
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-// const TerserPlugin = require('terser-webpack-plugin')
+
 
 
 module.exports = {
@@ -44,37 +44,22 @@ module.exports = {
       '@typings': resolve('src/typings')
 
     },
-    // extensions: [".tsx", ".ts", ".jsx", ".js"]
-    plugins: [
-      // new TerserPlugin({
-      //   sourceMap: process.env.NODE_ENV == 'development' ? true : false, // Must be set to true if using source-maps in production
-      //   parallel: true,
-      //   terserOptions: {
-      //     ecma: undefined,
-      //     warnings: false,
-      //     parse: {},
-      //     compress: {
-      //       drop_console: process.env.NODE_ENV === "production", // 生产环境下移除控制台所有的内容
-      //       drop_debugger: false, // 移除断点
-      //       pure_funcs:
-      //         process.env.NODE_ENV === "production" ? ["console.log"] : "", // 生产环境下移除console
-      //     },
-      //   },
-   
-      // }),
-      //打包时候开启
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          compress: {
-            warnings: process.env.NODE_ENV == 'development' ? true : false,  //必须为1版本  不然启动打包报错  或者高版本删除此项
-            drop_debugger: process.env.NODE_ENV == 'development' ? false : true,
-            drop_console: process.env.NODE_ENV == 'development' ? false : true,
-          },
-        },
-        sourceMap: process.env.NODE_ENV == 'development' ? true : false,
-        parallel: true,
-      }),
-    ],
+
+    // plugins: [
+  
+    //   //打包时候开启
+    //   new UglifyJsPlugin({
+    //     uglifyOptions: {
+    //       compress: {
+    //         warnings: process.env.NODE_ENV == 'development' ? true : false,  //必须为1版本  不然启动打包报错  或者高版本删除此项
+    //         drop_debugger: process.env.NODE_ENV == 'development' ? false : true,
+    //         drop_console: process.env.NODE_ENV == 'development' ? false : true,
+    //       },
+    //     },
+    //     sourceMap: process.env.NODE_ENV == 'development' ? true : false,
+    //     parallel: true,
+    //   }),
+    // ],
   },
   devServer: {
     port: 9000,
